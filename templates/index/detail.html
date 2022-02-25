@@ -1,0 +1,22 @@
+{% extends 'Templates/templates.html' %}
+
+{% block title %}GitHack.ru - {{ contents.title }} -  Мир информационной безопасности{% endblock %}
+
+{% block content %}
+    <div class="fh5co-narrow-content">
+        <div class="row row-bottom-padded-md">
+            <div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
+                <img class="img-responsive" src="{{ contents.image.url }}" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
+            </div>
+            <div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
+                <h2 class="fh5co-heading-colored">{{ contents.title }}</h2>
+                <p class="fh5co-text">Опубликовано: {{ contents.author }}</p>
+                <p class="fh5co-text">Категория:{% for categori in contents.category.all %} {{ categori.title }}{% endfor %}</p>
+                <p class="fh5co-text">Дата публикации: {{ contents.date }}</p>
+                <p class="fh5co-heading">Краткое содержание: </p>
+                <p>{{ contents.short_content }}</p>
+            </div>
+        </div>
+        {{ contents.content|safe }}
+    </div>
+{% endblock %}

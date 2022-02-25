@@ -1,0 +1,32 @@
+{% extends 'Templates/templates.html' %}
+{% load static %}
+
+<!-- Заголовок сайта -->
+{% block title %}GitHack.ru - Мир информационной безопасности{% endblock %}
+<!-- Начало главного блока  -->
+{% block content %}
+    <!-- Инструменты Kali Linux-->
+    <div class="fh5co-narrow-content">
+        <h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Инструкции Kali Linux</h2>
+        <div class="row row-bottom-padded-md">
+            {% for content in contents %}
+                {% for sort in content.category.all %}
+                    {% if sort.title == 'Инструменты' %}
+                    <div class="col-md-3 col-sm-6 col-padding animate-box" data-animate-effect="fadeInLeft">
+                        <div class="blog-entry">
+                            <a href="{% url 'index:post-detail' content.id %}" class="blog-img"><img src="{{ content.image.url }}" class="img-responsive" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>
+                            <div class="desc">
+                                <h3><a href="{% url 'index:post-detail' content.id %}">{{ content.title }}</a></h3>
+                                <span><small>опубликовано {{ content.author }}  </small> / <small> {% for one in content.category.all  %}{{ one.title }} {% endfor %} </small> / <small> <i class="icon-comment"></i> {{ content.date.year }}</small></span>
+                                <p>{{ content.short_content }}</p>
+                                <a href="{% url 'index:post-detail' content.id %}" class="lead">Читать дальше <i class="icon-arrow-right3"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+<!-- Конец главного блока  -->
