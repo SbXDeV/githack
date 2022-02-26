@@ -1,28 +1,28 @@
 {% extends 'Templates/templates.html' %}
 {% load static %}
-
 <!-- Заголовок сайта -->
 {% block title %}GitHack.ru - Новости - Мир информационной безопасности{% endblock %}
+{% block description %}GitHack.fun - Современный проект посвещенный интернет безопасности и изучению Kali Linux{% endblock %}
+{% block keywords %}Интернет безопаность, kali linux, взлом, хакерство, hack tool{% endblock %}
 <!-- Начало главного блока  -->
 {% block content %}
-    <!-- Главные новости сайта -->
     <div class="fh5co-narrow-content">
-        <h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Главные новости в сфере безопасности</h2>
+        <h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Новости в сфере интернет безопасности</h2>
         <div class="row row-bottom-padded-md">
-            {% for content in contents %}
+            {% for row in contents %}
                 {% for sort in content.category.all %}
                     {% if sort.title == 'Новости' %}
-                    <div class="col-md-3 col-sm-6 col-padding animate-box" data-animate-effect="fadeInLeft">
-                        <div class="blog-entry">
-                            <a href="{% url 'index:post-detail' content.id %}" class="blog-img"><img src="{{ content.image.url }}" class="img-responsive" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>
-                            <div class="desc">
-                                <h3><a href="{% url 'index:post-detail' content.id %}">{{ content.title }}</a></h3>
-                                <span><small>опубликовано {{ content.author }}  </small> / <small> {% for one in content.category.all  %}{{ one.title }} {% endfor %} </small> / <small> <i class="icon-comment"></i> {{ content.date.year }}</small></span>
-                                <p>{{ content.short_content }}</p>
-                                <a href="{% url 'index:post-detail' content.id %}" class="lead">Читать дальше <i class="icon-arrow-right3"></i></a>
+                        <div class="col-md-3 col-sm-6 col-padding animate-box" data-animate-effect="fadeInLeft">
+                            <div class="blog-entry">
+                                <a href="{% url 'index:post-detail' row.id %}" class="blog-img"><img src="{{ row.image.url }}" class="img-responsive" style="max-width: 332px; max-height: 200px" alt="{{ row.title }}"></a>
+                                <div class="desc">
+                                    <h3><a href="{% url 'index:post-detail' row.id %}" style="font-size: 10px">{{ row.title|truncatechars:83 }}</a></h3>
+                                    <span><small>Автор: {{ row.author }} </small> / <small> <i class="icon-comment"></i> {{ row.date }}</small></span>
+                                    <p>{{ row.short_content|truncatechars:200 }}</p>
+                                    <a href="{% url 'index:post-detail' row.id %}" class="lead">Читать дальше <i class="icon-arrow-right3"></i></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     {% endif %}
                 {% endfor %}
             {% endfor %}

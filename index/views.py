@@ -14,7 +14,7 @@ class Index(ListView):
 
     def get(self, request):
         news = Content.objects.order_by('-date').filter(category__title='Новости')[0:4]
-        tools = Content.objects.order_by('-date').filter(category__content=2)[0:4]
+        tools = Content.objects.order_by('-date').filter(category__title='Инструменты')[0:4]
 
         context = {
             'news': news,

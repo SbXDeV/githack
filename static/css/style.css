@@ -472,6 +472,10 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
   width: 100%;
   float: left;
   background: #fff;
+  min-height: 564px;
+  min-width: 334px;
+  max-height: 564px;
+  max-width: 334px;
 }
 @media screen and (max-width: 768px) {
   .blog-entry {
@@ -536,7 +540,11 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
   -o-transform: scale(1);
   transform: scale(1);
 }
-
+.desk-title {
+  min-width: 100px;
+  min-height: 100px;
+  margin: 0 auto;
+}
 .work {
   background-size: cover;
   background-position: center center;
