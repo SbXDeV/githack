@@ -3,20 +3,48 @@ from django import forms
 from django.contrib import admin
 from ckeditor.widgets import CKEditorWidget
 
-from index.models import Category, Content
+from . import models
 
 
-class PostAdminForm(forms.ModelForm):
+# Инструкции
+class GuidAdminForm(forms.ModelForm):
     content = forms.CharField(widget=CKEditorWidget())
 
     class Meta:
-        model = Content
+        model = models.Guid
         fields = '__all__'
 
 
-class PostAdmin(admin.ModelAdmin):
-    form = PostAdminForm
+class GuidPostAdmin(admin.ModelAdmin):
+    form = GuidAdminForm
 
 
-admin.site.register(Content, PostAdmin)
-admin.site.register(Category)
+# Новости
+class NewsAdminForm(forms.ModelForm):
+    content = forms.CharField(widget=CKEditorWidget())
+
+    class Meta:
+        model = models.News
+        fields = '__all__'
+
+
+class NewsPostAdmin(admin.ModelAdmin):
+    form = NewsAdminForm
+
+
+# Инструменты
+class ToolsAdminForm(forms.ModelForm):
+    content = forms.CharField(widget=CKEditorWidget())
+
+    class Meta:
+        model = models.Tools
+        fields = '__all__'
+
+
+class ToolsPostAdmin(admin.ModelAdmin):
+    form = ToolsAdminForm
+
+
+admin.site.register(models.Guid, GuidPostAdmin)
+admin.site.register(models.News, NewsPostAdmin)
+admin.site.register(models.Tools, ToolsPostAdmin)

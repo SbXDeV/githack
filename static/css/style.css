@@ -212,7 +212,7 @@ figure figcaption {
   transform: scaleX(1);
 }
 #fh5co-aside .fh5co-footer {
-  position: relative;
+  position: absolute;
   bottom: 0px;
   font-size: 14px;
   text-align: center;
@@ -472,10 +472,7 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
   width: 100%;
   float: left;
   background: #fff;
-  min-height: 585px;
-  /* min-width: 334px;   лишние стили
-  max-height: 564px;
-  max-width: 334px; */
+  min-height: 555px;
 }
 @media screen and (max-width: 768px) {
   .blog-entry {

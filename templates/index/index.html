@@ -12,16 +12,16 @@
         <h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Главные новости в сфере безопасности</h2>
         <div class="row row-bottom-padded-md">
             {% for row in news %}
-                <div class="col-md-3 col-sm-6 col-padding animate-box" data-animate-effect="fadeInLeft">
+                <div class="col-md-12 col-lg-3 col-padding animate-box" data-animate-effect="fadeInLeft">
                     <div class="blog-entry">
-                        <a href="{% url 'index:post-detail' row.id %}" class="blog-img"><img src="{{ row.image.url }}" class="img-responsive" style="max-width: 332px; max-height: 200px" alt="{{ row.title }}"></a>
+                        <a href="{% url 'index:post-News' row.id %}" class="blog-img"><img src="{{ row.image.url }}" class="img-responsive" style="max-width: 332px; max-height: 200px" alt="{{ row.title }}"></a>
                         <div class="desc">
                             <div class="desk-title">
-                                <h3><a href="{% url 'index:post-detail' row.id %}">{{ row.title|truncatechars:83 }}</a></h3>
+                                <h3><a href="{% url 'index:post-News' row.id %}">{{ row.title|truncatechars:83 }}</a></h3>
                             </div>
                             <span><small>Автор: {{ row.author }} </small> / <small> <i class="icon-comment"></i> {{ row.date }}</small></span>
                             <p>{{ row.short_content|truncatechars:200 }}</p>
-                            <a href="{% url 'index:post-detail' row.id %}" class="lead">Читать дальше <i class="icon-arrow-right3"></i></a>
+                            <a href="{% url 'index:post-News' row.id %}" class="lead">Читать дальше <i class="icon-arrow-right3"></i></a>
                         </div>
                     </div>
                 </div>
@@ -33,16 +33,16 @@
         <h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Инструменты Kali Linux</h2>
         <div class="row row-bottom-padded-md">
             {% for row in tools %}
-                <div class="col-md-3 col-sm-6 col-padding animate-box" data-animate-effect="fadeInLeft">
+                <div class="col-md-12 col-lg-3 col-padding animate-box" data-animate-effect="fadeInLeft">
                     <div class="blog-entry">
-                        <a href="{% url 'index:post-detail' row.id %}" class="blog-img"><img src="{{ row.image.url }}" class="img-responsive" style="max-width: 332px; max-height: 200px" alt="{{ row.title }}"></a>
+                        <a href="{% url 'index:post-Tools' row.id %}" class="blog-img"><img src="{{ row.image.url }}" class="img-responsive" style="max-width: 332px; max-height: 200px" alt="{{ row.title }}"></a>
                         <div class="desc">
                             <div class="desk-title">
-                                <h3><a href="{% url 'index:post-detail' row.id %}">{{ row.title|truncatechars:83 }}</a></h3>
+                                <h3><a href="{% url 'index:post-Tools' row.id %}">{{ row.title|truncatechars:83 }}</a></h3>
                             </div>
                             <span><small>Автор: {{ row.author }} </small> / <small> <i class="icon-comment"></i> {{ row.date }}</small></span>
                             <p>{{ row.short_content|truncatechars:200 }}</p>
-                            <a href="{% url 'index:post-detail' row.id %}" class="lead">Читать дальше <i class="icon-arrow-right3"></i></a>
+                            <a href="{% url 'index:post-Tools' row.id %}" class="lead">Читать дальше <i class="icon-arrow-right3"></i></a>
                         </div>
                     </div>
                 </div>
