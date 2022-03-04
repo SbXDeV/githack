@@ -212,8 +212,8 @@ figure figcaption {
   transform: scaleX(1);
 }
 #fh5co-aside .fh5co-footer {
-  position: absolute;
-  bottom: 40px;
+  position: relative;
+  bottom: 0px;
   font-size: 14px;
   text-align: center;
   width: 100%;
@@ -472,10 +472,10 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
   width: 100%;
   float: left;
   background: #fff;
-  min-height: 564px;
-  min-width: 334px;
+  min-height: 585px;
+  /* min-width: 334px;   лишние стили
   max-height: 564px;
-  max-width: 334px;
+  max-width: 334px; */
 }
 @media screen and (max-width: 768px) {
   .blog-entry {
@@ -492,7 +492,7 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
 }
 .blog-entry .blog-img img {
   position: relative;
-  max-width: 100%;
+  width: 100%;
   -webkit-transform: scale(1.2);
   -moz-transform: scale(1.2);
   -ms-transform: scale(1.2);
@@ -1149,6 +1149,8 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
 
 .row-bottom-padded-md {
   padding-bottom: 4em;
+  display: flex;
+  flex-wrap: wrap;
 }
 @media screen and (max-width: 768px) {
   .row-bottom-padded-md {
@@ -1166,11 +1168,23 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
 }
 
 .col-padding {
-  padding: 10px !important;
+  padding: 5px !important;
 }
 
 .js .animate-box {
   opacity: 0;
+}
+
+/* СТИЛИ ДЛЯ Bootstrap */
+
+.img-responsive {
+  height: 150px;
+}
+
+@media screen and (max-width: 1300px) {
+  .col-md-3 {
+    width: 33%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
